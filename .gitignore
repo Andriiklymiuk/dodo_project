@@ -1,0 +1,6 @@
+
+# Added by corgi cli
+corgi_services/db_services
+corgi_services/*
+.env*
+dodoServer

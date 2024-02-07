@@ -1,0 +1,31 @@
+services:
+  dodoApp:
+    cloneFrom: https://github.com/Andriiklymiuk/dodo.git
+    path: ./dodo
+    depends_on_services:
+      - name: dodoServer
+        envAlias: EXPO_PUBLIC_TODO_URL
+        suffix: /
+    environment:
+      - EXPO_PUBLIC_TODO_WEBSOCKET_URL=ws://localhost:65533
+    beforeStart:
+      - yarn install
+    start:
+      # you can run  yarn startAll to open web, android and ios all at once
+      - yarn startAll
+      # or you can run yarn web, yarn ios, yarn android separately
+      # - yarn ios
+    afterStart:
+      # close ios emulator
+      - killall Simulator 2>/dev/null || true
+      # close android emulator
+      - killall qemu-system-aarch64 2>/dev/null || true
+
+  dodoServer:
+    cloneFrom: https://github.com/Andriiklymiuk/dodoServer.git
+    path: ./dodoServer
+    port: 65533
+    beforeStart:
+      - bun install
+    start:
+      - bun dev
