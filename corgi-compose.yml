@@ -12,9 +12,9 @@ services:
       - yarn install
     start:
       # you can run  yarn startAll to open web, android and ios all at once
-      - yarn startAll
-      # or you can run yarn web, yarn ios, yarn android separately
       # - yarn ios
+      # or you can run yarn web, yarn ios, yarn android separately
+      - yarn ios
     afterStart:
       # close ios emulator
       - killall Simulator 2>/dev/null || true
