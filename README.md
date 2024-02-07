@@ -2,7 +2,7 @@
 
 It includes:
  - [expo app](https://github.com/Andriiklymiuk/dodo)
- It has tamagui for styles, RTK for managing queries, Websocket for updating data it real time.
+ It has tamagui for styles, RTK Query for managing http queries, Websocket for updating data it real time.
  ios, android, web versions available
 
  - [hono/bun server](https://github.com/Andriiklymiuk/dodoServer)
